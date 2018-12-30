@@ -1,0 +1,76 @@
+﻿2018.05.02 C++ 프로그래밍 중간고사 풀이
+
+1. 기계어, 어셈블리어, 고급언어 비교 설명
+
+2. ANSI C++ 프로그램 작성 장점 : 다양한 환경에서 개발 가능.
+
+3. C++언어가 가지고 있는 3가지 특성
+	 캡슐화, 다형성, 상속
+
+4. 객체의 멤버변수는 값으로서 초기화를 못한다. 
+  따라서 class tower{
+	int height=20;//여기서 오류남. C++는 초기화를 못한다.
+	public:
+		tower(){height=10;return;}
+	};
+
+5. class building{
+	private:
+		int floor;
+	public:
+		building(int s){floor=s;}
+	};
+
+    int main(){
+	building twin, red;//오류남. 매개변수없는 생성자가 없기 때문이다.
+	building star(14),blue(5);
+	}
+
+6. int & big1(int a, int b){
+	if(a>b) return a;
+	else return b;
+	}
+   int & big2(int &a, int &b){
+	if(a>b) return a;
+	else return b;
+ }
+   void main(void){
+	int x=1, y=2;
+	int &z = big1(x,y);//call - by - value
+	z=100;
+	cout<<"x: "<<x<<:y:"<<y<<endl;//x:1, y:2 출력
+	int &w =big2(x,y);// call - by - reference
+	w=200;
+	count<<"x: "<<x<<"y:"<<y<<endl;//x:1, y:200출력
+}
+
+7. 
+  class Student{
+	int id;
+     public:
+	Student(int id) {this->id=id;};
+     friends bool isValid(Student s);
+};
+bool IsValid(Student s){
+	if(s.id>0) return true;
+else return false;
+}
+
+8. 
+	class StaticTest{
+	  static int a;
+	  public:
+		static int getA(){reutnr a;}
+	};
+	int StaticTest::a;
+	
+	void main(void){
+		StaticTest s;
+		StaticTest *p = &s;
+
+		s.getA();
+		s::getA();//접근 불가
+		p->getA();
+	}
+
+9. 
